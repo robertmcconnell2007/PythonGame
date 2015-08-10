@@ -1,0 +1,30 @@
+forest_appleTree = 0
+forest_pineTree = 0
+underground_normalCave = 0
+pecuary_pig = 0
+pecuary_cow = 0
+consumables_food = 0
+misc_people = 0
+
+misc_stoneSword = [1, 2]
+misc_stoneSwordDurSet = 2
+misc_ironSword = [0, 0]
+misc_ironSwordDurSet = 0
+misc_stoneAxe = [1, 6]
+misc_stoneAxeDurSet = 6
+misc_ironAxe = [0, 0]
+misc_ironAxeDurSet = 0
+misc_stonePickaxe = [1, 10]
+misc_stonePickaxeDurSet = 10
+misc_ironPickaxe = [0, 0]
+misc_ironPickaxeDurSet = 0
+
+misc_wood = 0
+misc_iron = 0
+misc_stone = 0
+misc_ironSm = 0
+misc_stoneSm = 0
+constructions_craftingForge = 0
+constructions_pplHouse = 0
+constructions_prodPecuary = 0
+constructions_smeltingForge = 0
