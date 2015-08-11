@@ -1,0 +1,10 @@
+The game ends when everyone dies. But there is no death mechanic implemented yet, but I am planning to. I was wondering what mechanism you would consider
+better:
+
+1. A system where there is a program running in the background along with the game, with an internal clock where for x ammount of time there would be a chance
+for an event to happen, and those could be deadly events like a wolf attack, which you could make buildings to protect yourself against.
+
+2. A turn-based system with essencially the same mechanism as 1. but each action would count as x ammount of time.
+
+Please answer here:
+

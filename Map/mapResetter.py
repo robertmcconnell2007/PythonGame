@@ -4,6 +4,7 @@ import os
 from Vars import gameVars
 #
 def mapCreator(path):
+    #recreates the map
     gameVars.forest_appleTree = random.randint(19, 46)
     gameVars.forest_pineTree = random.randint(25, 78)
     gameVars.underground_normalCave = random.randint(1, 5)

@@ -14,7 +14,7 @@ import durability
 print(os.getcwd())
 print("1.To change location;\n2.Create a totally fresh map or any other key to skip it\n  ")
 
-Opt = raw_input()
+Opt = input()
 #while(Opt != '1' or Opt != '2'):
 if Opt == '1':
 	mapResetter.mapCreator(os.getcwd())
@@ -31,7 +31,7 @@ elif Opt == '3':
 else:
 	mapLoad.load(os.getcwd())
 
-#	Opt = raw_input()
+#	Opt = input()
 	
 	
 toSpawn = 0
@@ -47,13 +47,13 @@ while gameVars.misc_people > 0:
 			toSpawn == 0
 	
 	os.system("cls")
-	What_toDo = raw_input ("Choose with the repective number:\n1.Chop down trees\n2.Slaughter an animal\n3.Go to a cave\n4.Check stats\n"
+	What_toDo = input ("Choose with the repective number:\n1.Chop down trees\n2.Slaughter an animal\n3.Go to a cave\n4.Check stats\n"
 					   "5.Save game\n6.Build something\n7.Craft something\n8.Smelt something\n")
 	if What_toDo == '2':
-		animalChoice = raw_input("Do you want to kill:\n\n1.Pig\n2.Cow\n>>  ")
+		animalChoice = input("Do you want to kill:\n\n1.Pig\n2.Cow\n>>  ")
 		if gameVars.misc_stoneSword[0] >= 1 or gameVars.misc_ironSword[0] >= 1:
 			if gameVars.pecuary_pig >= 1 and animalChoice == '1':
-				weapon = raw_input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n>>")	
+				weapon = input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n>>  ")	
 				if weapon == "1" and gameVars.misc_stoneSword[0] > 0:	
 					print ("You killed a pig and managed to salvage 5kgs of meat!")
 					gameVars.consumables_food += 5
@@ -72,6 +72,7 @@ while gameVars.misc_people > 0:
 					time.sleep(3)
 					durability.decreaseDurability(0,1,0,0,0,0)
 					os.system("cls")
+					
 		os.system("cls")
 		if gameVars.misc_stoneSword[0] == 0 or gameVars.misc_ironSword[0] == 0:
 			if gameVars.pecuary_pig == 0 and animalChoice == '1':
@@ -79,7 +80,7 @@ while gameVars.misc_people > 0:
 			
 		if gameVars.misc_stoneSword[0] >= 1 or gameVars.misc_ironSword[0] >= 1:
 			if gameVars.pecuary_cow >= 1 and animalChoice == '2':
-				weapon = raw_input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n>>")
+				weapon = input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n>>  ")
 				if weapon == "1" and gameVars.misc_stoneSword[0] > 0:
 					print ("You killed a cow and salvaged 7kgs of meat!")
 					gameVars.consumables_food += 7
@@ -106,11 +107,11 @@ while gameVars.misc_people > 0:
 
 	if What_toDo == '1':
 		if gameVars.misc_stoneAxe[0] >= 1 or gameVars.misc_ironAxe[0] >= 1:
-			which_treeChoice1 = raw_input ("Click 'a' to chop an apple tree or 'p' to chop a pine tree>>  ")
+			which_treeChoice1 = input ("Click 'a' to chop an apple tree or 'p' to chop a pine tree>>  ")
 			if which_treeChoice1 == 'a' and gameVars.forest_appleTree >= 1:
-				tool = raw_input("Which tool do you wish to use?\n1.Stone axe\n2.Iron axe")
+				tool = input("Which tool do you wish to use?\n1.Stone axe\n2.Iron axe\n>>  ")
 				if tool == "1" and gameVars.misc_stoneAxe[0] > 0:
-					print ("You chopped an apple tree, and from under the leaves you got 1kg of apples and 6kgs of wood from it!")
+					print ("You chopped an apple tree, and under the leaves you found 1kg of apples and 6kgs of wood!")
 					gameVars.consumables_food += 3
 					gameVars.misc_wood += 6
 					gameVars.forest_appleTree -= 1
@@ -118,7 +119,7 @@ while gameVars.misc_people > 0:
 					toSpawn += 1
 					durability.decreaseDurability(0,0,1,0,0,0)
 				elif tool == "2" and gameVars.misc_stoneAxe[0] > 0:
-					print ("You chopped an apple tree, and from under the leaves you got 3kgs of apples and 8kgs of wood from it!")
+					print ("You chopped an apple tree, and under the leaves you found 3kgs of apples and 8kgs of wood!")
 					gameVars.consumables_food += 5
 					gameVars.misc_wood += 8
 					gameVars.forest_appleTree -= 1
@@ -155,7 +156,7 @@ while gameVars.misc_people > 0:
 		time.sleep(3)
 		os.system("cls")
 		toSpawn += 1
-		
+                
 	if What_toDo == '5':
 		mapSaver.saver(os.getcwd())
 		time.sleep(3)
@@ -167,11 +168,11 @@ while gameVars.misc_people > 0:
 		gameVars.misc_ironPickaxe, "iron pickaxe(s);\nMap - ", gameVars.forest_pineTree, "pine trees;\n      ", gameVars.forest_appleTree, "apple trees;\n      ", gameVars.pecuary_pig,
 		"pigs;\n      ", gameVars.pecuary_cow, "cows;\n      ", gameVars.constructions_pplHouse, "house(s);\n      ", gameVars.constructions_craftingForge, "crafting forge(s);\n      ", gameVars.constructions_prodPecuary,
 		"pecuary house(s);\n      ", gameVars.constructions_smeltingForge, "smelting forge(s).\n\n")
-		raw_input()
+		input()
 	
 	if What_toDo == '6':
-		what_toBuild = raw_input ("What do you want to build? (choose with the first letter of each word (not numbers)):\n1 A house for 29 wood;\n"
-								"2 An animal pecuary house for 60 wood;\n3 A smelting forge for 40 stone;\n4 A crafting forge for 50 stone.\n")
+		what_toBuild = input ("What do you want to build? (choose with the respective number):\n1 A house for 29 wood;\n"
+								"2.An animal pecuary house for 60 wood;\n3 A smelting forge for 40 stone;\n4 A crafting forge for 50 stone.\n>>  ")
 		if what_toBuild == '1':
 			if gameVars.misc_wood >= 29:
 				gameVars.constructions_pplHouse += 1
@@ -212,10 +213,10 @@ while gameVars.misc_people > 0:
 		os.system("cls")
 
 	if What_toDo == '7':
-		what_toCraft = raw_input ("What do you want to craft? (choose with the first letter of each word):\n"
-							  "A stone sword for 50 smelted stone;\n An iron sword for 125 smelted iron;\nA stone axe for 60 smelted stone;\n"
-							  "An iron axe for 80 smelted iron;\nA stone pickaxe for 130 smelted stone;\nAn iron pickaxe for 180 smelted iron.\n")
-		if what_toCraft == 'assfss' and gameVars.constructions_smeltingForge >= 1:
+		what_toCraft = input ("What do you want to craft? (choose with the respective number):\n"
+							  "1.A stone sword for 50 smelted stone;\n2.An iron sword for 125 smelted iron;\n3.A stone axe for 60 smelted stone;\n"
+							  "4.An iron axe for 80 smelted iron;\n5.A stone pickaxe for 130 smelted stone;\n6.An iron pickaxe for 180 smelted iron.\n>>  ")
+		if what_toCraft == '1' and gameVars.constructions_smeltingForge >= 1:
 			if gameVars.misc_stoneSm >= 50:
 				gameVars.misc_stoneSword[0] += 1
 				gameVars.misc_stoneSword[1] += 5
@@ -228,7 +229,21 @@ while gameVars.misc_people > 0:
 				print ("Go get more smelted stone!!!")
 			time.sleep(3)
 			os.system("cls")
-		if what_toCraft == 'asafss' and gameVars.constructions_smeltingForge >= 1:
+		if what_toCraft == '2' and gameVars.constructions_smeltingForge >= 1:
+			if gameVars.misc_ironSm >= 125:
+				gameVars.misc_ironSword[0] += 1
+				gameVars.misc_ironSword[1] += 8
+				gameVars.misc_ironSwordDurSet += 8
+				gameVars.misc_ironSm -= 125
+				gameVars.consumables_food -= 20
+				durability.decreaseDurability(False, True, False, False, False, False)
+				toSpawn += 1
+			elif gameVars.misc_ironSm < 125:
+				print ("Go get more smelted iron!!!")
+			time.sleep(3)
+			os.system("cls")
+			
+		if what_toCraft == '3' and gameVars.constructions_smeltingForge >= 1:
 			if gameVars.misc_stoneSm >= 60:
 				gameVars.misc_stoneAxe[0] += 1
 				gameVars.misc_stoneAxe[1] += 6
@@ -241,7 +256,22 @@ while gameVars.misc_people > 0:
 				print ("Go get more smelted stone!!!")
 			time.sleep(3)
 			os.system("cls")
-		if what_toCraft == 'aspfss' and gameVars.constructions_smeltingForge >= 1:
+
+		if what_toCraft == '4' and gameVars.constructions_smeltingForge >= 1:
+			if gameVars.misc_ironSm >= 80:
+				gameVars.misc_ironAxe[0] += 1
+				gameVars.misc_ironAxe[1] += 9
+				gameVars.misc_ironAxeDurSet += 9
+				gameVars.misc_ironSm -= 80
+				gameVars.consumables_food -= 15
+				durability.decreaseDurability(False, False, False, True, False, False)
+				toSpawn += 1
+			elif gameVars.misc_ironSm < 80:
+				print ("Go smelt iron!!!")
+			time.sleep(3)
+			os.system("cls")
+			
+		if what_toCraft == '5' and gameVars.constructions_smeltingForge >= 1:
 			if gameVars.gameVars.misc_stoneSm >= 130:
 				gameVars.misc_stonePickaxe[0] += 1
 				gameVars.misc_stonePickaxe[1] += 10
@@ -255,33 +285,7 @@ while gameVars.misc_people > 0:
 			time.sleep(3)
 			os.system("cls")
 
-		if what_toCraft == 'aisfsi' and gameVars.constructions_smeltingForge >= 1:
-			if gameVars.misc_ironSm >= 125:
-				gameVars.misc_ironSword[0] += 1
-				gameVars.misc_ironSword[1] += 8
-				gameVars.misc_ironSwordDurSet += 8
-				gameVars.misc_ironSm -= 125
-				gameVars.consumables_food -= 20
-				durability.decreaseDurability(False, True, False, False, False, False)
-				toSpawn += 1
-			elif gameVars.misc_ironSm < 125:
-				print ("Go get more smelted iron!!!")
-			time.sleep(3)
-			os.system("cls")
-		if what_toCraft == 'aiafsi' and gameVars.constructions_smeltingForge >= 1:
-			if gameVars.misc_ironSm >= 80:
-				gameVars.misc_ironAxe[0] += 1
-				gameVars.misc_ironAxe[1] += 9
-				gameVars.misc_ironAxeDurSet += 9
-				gameVars.misc_ironSm -= 80
-				gameVars.consumables_food -= 15
-				durability.decreaseDurability(False, False, False, True, False, False)
-				toSpawn += 1
-			elif gameVars.misc_ironSm < 80:
-				print ("Go get more smelted iron!!!")
-			time.sleep(3)
-			os.system("cls")
-		if what_toCraft == 'aipfsi' and gameVars.constructions_smeltingForge >= 1:
+		if what_toCraft == '6' and gameVars.constructions_smeltingForge >= 1:
 			if gameVars.misc_ironSm >= 180:
 				gameVars.misc_ironPickaxe[0] += 1
 				gameVars.misc_ironPickaxe[1] += 15
@@ -291,16 +295,15 @@ while gameVars.misc_people > 0:
 				durability.decreaseDurability(False, False, False, False, False, True)
 				toSpawn += 1
 			elif gameVars.misc_ironSm < 180:
-				print ("Go get more smelted iron!!!")
+				print ("Go smelt iron!!!")
 			time.sleep(3)
 			os.system("cls")
 	
 	if What_toDo == '8':
-		what_toSmelt = raw_input ("What do you want to smelt?:\n"
-							  "1.Smelt iron;\n2.Smelt stone.\n")
+		what_toSmelt = input ("What do you want to smelt?:\n1.Smelt iron;\n2.Smelt stone.\n>>  ")
 		if what_toSmelt == '1':
 			if gameVars.constructions_smeltingForge >= 1 and gameVars.misc_iron >= 1:
-				howm_ironSmelt = raw_input ("How much iron do you pretend to smelt?")
+				howm_ironSmelt = input ("How much iron do you pretend to smelt?\n>>  ")
 				howm_ironSmelt_int = int(howm_ironSmelt)
 				if misc_iron >= howm_ironSmelt_int:
 					for number in range(howm_ironSmelt_int):
@@ -317,7 +320,7 @@ while gameVars.misc_people > 0:
 		
 		if what_toSmelt == '2':
 			if gameVars.constructions_smeltingForge >= 1 and gameVars.misc_stone >= 1:
-				howm_stoneSmelt = raw_input ("How much stone do you pretend to smelt?")
+				howm_stoneSmelt = input ("How much stone do you intend to smelt?\n>>  ")
 				howm_stoneSmelt_int = int(howm_stoneSmelt)
 				if gameVars.misc_stone >= howm_stoneSmelt_int:
 					for number in range(howm_stoneSmelt_int):
@@ -330,7 +333,9 @@ while gameVars.misc_people > 0:
 					print("Come back when you have decided to enter less or as many stone as you have!!!")
 			elif gameVars.constructions_smeltingForge == 0 or gameVars.misc_stone == 0:
 				print("Come back when you have at least 1 stone!!! Or when you have a smelting forge...")
-
+	print("\n")
+		
+                
 
 	#-----Funcionalidades-----
 

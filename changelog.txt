@@ -1,1 +1,8 @@
 Enter here any changes you make
+
+V0.02
+
+I found an error on mapSaver.py, until you fix the durability im not making any changes you might undo.
+I've upgraded the UI to more intuitive controls.
+All map "handlers" have comments which indicate what each file and section of code does.
+The saver and loader might not work though :D

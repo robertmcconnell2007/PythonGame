@@ -16,12 +16,21 @@ def saver(path):
     saveCallerF_SmS = open(path + "\\Misc\\smtStone.txt", "r+")
     saveCallerF_SmI = open(path + "\\Misc\\smtIron.txt", "r+")
     saveCallerF_Mw = open(path + "\\Misc\\wood.txt", "r+")
-    saveCallerF_Ip = open(path + "\\Items\\Iron\\ironPickaxe.txt", "r+")
-    saveCallerF_Ia = open(path + "\\Items\\Iron\\ironAxe.txt", "r+")
-    saveCallerF_Is = open(path + "\\Items\\Iron\\ironSword.txt", "r+")
-    saveCallerF_Sp = open(path + "\\Items\\Stone\\stonePickaxe.txt", "r+")
-    saveCallerF_Sa = open(path + "\\Items\\Stone\\stoneAxe.txt", "r+")
-    saveCallerF_Ss = open(path + "\\Items\\Stone\\stoneSword.txt", "r+")
+    
+    saveCallerF_Ipd = open(path + "\\Items\\Iron\\ironPickaxeDur.txt", "r+")
+    saveCallerF_Iad = open(path + "\\Items\\Iron\\ironAxeDur.txt", "r+")
+    saveCallerF_Isd = open(path + "\\Items\\Iron\\ironSwordDur.txt", "r+")
+    saveCallerF_Spd = open(path + "\\Items\\Stone\\stonePickaxeDur.txt", "r+")
+    saveCallerF_Sad = open(path + "\\Items\\Stone\\stoneAxeDur.txt", "r+")
+    saveCallerF_Ssd = open(path + "\\Items\\Stone\\stoneSwordDur.txt", "r+")
+
+    saveCallerF_Ipa = open(path + "\\Items\\Iron\\ironPickaxeAmm.txt", "r+")
+    saveCallerF_Iaa = open(path + "\\Items\\Iron\\ironAxeAmm.txt", "r+")
+    saveCallerF_Isa = open(path + "\\Items\\Iron\\ironSwordAmm.txt", "r+")
+    saveCallerF_Spa = open(path + "\\Items\\Stone\\stonePickaxeAmm.txt", "r+")
+    saveCallerF_Saa = open(path + "\\Items\\Stone\\stoneAxeAmm.txt", "r+")
+    saveCallerF_Ssa = open(path + "\\Items\\Stone\\stoneSwordAmm.txt", "r+")
+    
     saveCallerF_CcF = open(path + "\\MapEntities\\constructions_craftingForge.txt", "r+")
     saveCallerF_CpH = open(path + "\\MapEntities\\constructions_pplHouse.txt", "r+")
     saveCallerF_CpP = open(path + "\\MapEntities\\constructions_prodPecuary.txt", "r+")
@@ -40,18 +49,29 @@ def saver(path):
     saveUnsI_conv = str(gameVars.misc_iron)
     saveSmS_conv = str(gameVars.misc_stoneSm)
     saveSmI_conv = str(gameVars.misc_ironSm)
-    saveIp_conv = str(gameVars.misc_ironPickaxe)
-    saveIa_conv = str(gameVars.misc_ironAxe)
-    saveIs_conv = str(gameVars.misc_ironSword)
-    saveSp_conv = str(gameVars.misc_stonePickaxe)
-    saveSa_conv = str(gameVars.misc_stoneAxe)
-    saveSs_conv = str(gameVars.misc_stoneSword)
+
+
+    saveIpd_conv = str(gameVars.misc_ironPickaxe)
+    saveIad_conv = str(gameVars.misc_ironAxe)
+    saveIsd_conv = str(gameVars.misc_ironSword)
+    saveSpd_conv = str(gameVars.misc_stonePickaxe)
+    saveSad_conv = str(gameVars.misc_stoneAxe)
+    saveSsd_conv = str(gameVars.misc_stoneSword)
+    
+    saveIpa_conv = str(gameVars.misc_ironPickaxe)
+    saveIaa_conv = str(gameVars.misc_ironAxe)
+    saveIsa_conv = str(gameVars.misc_ironSword)
+    saveSpa_conv = str(gameVars.misc_stonePickaxe)
+    saveSaa_conv = str(gameVars.misc_stoneAxe)
+    saveSsa_conv = str(gameVars.misc_stoneSword)
+
+
     saveMw_conv = str(gameVars.misc_wood)
     saveCcF_conv = str(gameVars.constructions_craftingForge)
     saveCpH_conv = str(gameVars.constructions_pplHouse)
     saveCpP_conv = str(gameVars.constructions_prodPecuary)
     saveCsF_conv = str(gameVars.constructions_smeltingForge)
-
+        
     #writes said strings to the .txt file
     
     saverAt = saveCallerF_At.write (saveAt_conv)
