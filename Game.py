@@ -20,7 +20,7 @@ if Opt == '1':
 	mapResetter.mapCreator(os.getcwd())
 	mapLoad.load(os.getcwd())
 elif Opt == '2':
-	mapFresh.mapfreshCreator()
+	mapFresh.mapfreshCreator(os.getcwd())
 	mapLoad.load(os.getcwd())
 elif Opt == '3':
 	retVal = durability.decreaseDurability(1,0,0,0,0,0)

@@ -4,7 +4,11 @@ from Vars import gameVars
 
 
 def load(path):
+        #loads last save. as content is added this file will need updating.
 	print("Loading...")
+
+        #opens up files for r+
+	
 	loadAt = open(path + "\\MapEntities\\forest_appleTree.txt", "r+")
 	loadPt = open(path + "\\MapEntities\\forest_pineTree.txt", "r+")
 	loadNc = open(path + "\\MapEntities\\underground_normalCave.txt", "r+")
@@ -33,6 +37,9 @@ def load(path):
 	loadCpH = open(path + "\\MapEntities\\constructions_pplHouse.txt", "r+")
 	loadCpP = open(path + "\\MapEntities\\constructions_prodPecuary.txt", "r+")
 	loadCsF = open(path + "\\MapEntities\\constructions_smeltingForge.txt", "r+")
+
+        #reads .txt files for integers
+	
 	At_loadedInf = int(loadAt.readlines()[0])
 	Pt_loadedInf = int(loadPt.readlines()[0])
 	Nc_loadedInf = int(loadNc.readlines()[0])
@@ -61,6 +68,9 @@ def load(path):
 	CpH_loadedInf = int(loadCpH.readlines()[0])
 	CpP_loadedInf = int(loadCpP.readlines()[0])
 	CsF_loadedInf = int(loadCsF.readlines()[0])
+
+        #assigns integers in .txt file to the actual game variables
+	
 	gameVars.forest_appleTree = At_loadedInf
 	gameVars.forest_pineTree = Pt_loadedInf
 	gameVars.underground_normalCave = Nc_loadedInf
@@ -83,6 +93,9 @@ def load(path):
 	gameVars.constructions_pplHouse = CpH_loadedInf
 	gameVars.constructions_prodPecuary = CpP_loadedInf
 	gameVars.constructions_smeltingForge = CsF_loadedInf
+	
+	#closes readers
+	
 	loadAt.close
 	loadPt.close
 	loadNc.close

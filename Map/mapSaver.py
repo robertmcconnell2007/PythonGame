@@ -1,6 +1,9 @@
 from Vars import gameVars
 #
 def saver(path):
+    #saves game. as content is added this file will need updating.
+
+    #opens up files for r+
     saveCallerF_At = open(path + "\\MapEntities\\forest_appleTree.txt", "r+")
     saveCallerF_Pt = open(path + "\\MapEntities\\forest_pineTree.txt", "r+")
     saveCallerF_Nc = open(path + "\\MapEntities\\underground_normalCave.txt", "r+")
@@ -23,6 +26,9 @@ def saver(path):
     saveCallerF_CpH = open(path + "\\MapEntities\\constructions_pplHouse.txt", "r+")
     saveCallerF_CpP = open(path + "\\MapEntities\\constructions_prodPecuary.txt", "r+")
     saveCallerF_CsF = open(path + "\\MapEntities\\constructions_smeltingForge.txt", "r+")    
+
+    #turns integers into strings to write them onto the .txt files    
+    
     saveAt_conv = str(gameVars.forest_appleTree)
     savePt_conv = str(gameVars.forest_pineTree)
     saveNc_conv = str(gameVars.underground_normalCave)
@@ -45,6 +51,9 @@ def saver(path):
     saveCpH_conv = str(gameVars.constructions_pplHouse)
     saveCpP_conv = str(gameVars.constructions_prodPecuary)
     saveCsF_conv = str(gameVars.constructions_smeltingForge)
+
+    #writes said strings to the .txt file
+    
     saverAt = saveCallerF_At.write (saveAt_conv)
     saverPt = saveCallerF_Pt.write (savePt_conv)
     saverNc = saveCallerF_Nc.write (saveNc_conv)
@@ -65,6 +74,9 @@ def saver(path):
     saverCpH = saveCallerF_CpH.write (saveCpH_conv)
     saverCpP = saveCallerF_CpP.write (saveCpP_conv)
     saverCsF = saveCallerF_CsF.write (saveCsF_conv)
+
+    #closes the files
+    
     saveCallerF_At.close
     saveCallerF_Pt.close
     saveCallerF_Nc.close

@@ -3,9 +3,8 @@ import os
 import time
 
 from Vars import gameVars
-#
-path = "C:\\Users\\Rui\\Desktop\\game"
-def mapfreshCreator():
+def mapfreshCreator(path):
+    #creates a whole new map. as content is added this file will need updating.
     gameVars.forest_appleTree = random.randint(19, 46)
     gameVars.forest_pineTree = random.randint(25, 78)
     gameVars.underground_normalCave = random.randint(1, 5)
@@ -118,8 +117,6 @@ def mapfreshCreator():
     tCaller.write (tStrConv)
     tCaller.close()
     #=================================================================================================================#
-    
-    
     tCaller = open(path + "\\Items\\Iron\\ironAxeAmm.txt", "w+")
     tStrConv = str(gameVars.misc_ironAxe[0])
     tCaller.write (tStrConv)
@@ -145,5 +142,4 @@ def mapfreshCreator():
     tCaller.close()
     #=================================================================================================================#
     os.system("cls")
-    #print("You now need to close this window and re-open it. After that click any other key to load and you're good to go!")
     time.sleep(1)
