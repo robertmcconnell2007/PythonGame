@@ -15,21 +15,28 @@ print(os.getcwd())
 print("1.To change location;\n2.Create a totally fresh map or any other key to skip it\n  ")
 
 Opt = raw_input()
-
-
+#while(Opt != '1' or Opt != '2'):
 if Opt == '1':
 	mapResetter.mapCreator(os.getcwd())
 	mapLoad.load(os.getcwd())
 elif Opt == '2':
 	mapFresh.mapfreshCreator()
 	mapLoad.load(os.getcwd())
+elif Opt == '3':
+	retVal = durability.decreaseDurability(1,0,0,0,0,0)
+	if(retVal == True) :
+		print("we have durability!")
+	else:
+		print("no weapon!")
 else:
 	mapLoad.load(os.getcwd())
 
+#	Opt = raw_input()
+	
+	
 toSpawn = 0
-
+print(Opt);
 while gameVars.misc_people > 0:
-	durability.attemptDestroy()
 	if toSpawn == 5:
 		typeSpawn = random.randint(0, 1)
 		if typeSpawn == 0:
