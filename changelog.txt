@@ -6,3 +6,13 @@ I found an error on mapSaver.py, until you fix the durability im not making any 
 I've upgraded the UI to more intuitive controls.
 All map "handlers" have comments which indicate what each file and section of code does.
 The saver and loader might not work though :D
+
+V0.04
+
+Saver and loader systems fixed
+New content added:
+ Death;
+ Starvation;
+ Birth.
+A few grammatical mistakes fixed
+Event system added.

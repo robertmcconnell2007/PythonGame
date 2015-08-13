@@ -51,19 +51,19 @@ def saver(path):
     saveSmI_conv = str(gameVars.misc_ironSm)
 
 
-    saveIpd_conv = str(gameVars.misc_ironPickaxe)
-    saveIad_conv = str(gameVars.misc_ironAxe)
-    saveIsd_conv = str(gameVars.misc_ironSword)
-    saveSpd_conv = str(gameVars.misc_stonePickaxe)
-    saveSad_conv = str(gameVars.misc_stoneAxe)
-    saveSsd_conv = str(gameVars.misc_stoneSword)
+    saveIpd_conv = str(gameVars.misc_ironPickaxe[1])
+    saveIad_conv = str(gameVars.misc_ironAxe[1])
+    saveIsd_conv = str(gameVars.misc_ironSword[1])
+    saveSpd_conv = str(gameVars.misc_stonePickaxe[1])
+    saveSad_conv = str(gameVars.misc_stoneAxe[1])
+    saveSsd_conv = str(gameVars.misc_stoneSword[1])
     
-    saveIpa_conv = str(gameVars.misc_ironPickaxe)
-    saveIaa_conv = str(gameVars.misc_ironAxe)
-    saveIsa_conv = str(gameVars.misc_ironSword)
-    saveSpa_conv = str(gameVars.misc_stonePickaxe)
-    saveSaa_conv = str(gameVars.misc_stoneAxe)
-    saveSsa_conv = str(gameVars.misc_stoneSword)
+    saveIpa_conv = str(gameVars.misc_ironPickaxe[0])
+    saveIaa_conv = str(gameVars.misc_ironAxe[0])
+    saveIsa_conv = str(gameVars.misc_ironSword[0])
+    saveSpa_conv = str(gameVars.misc_stonePickaxe[0])
+    saveSaa_conv = str(gameVars.misc_stoneAxe[0])
+    saveSsa_conv = str(gameVars.misc_stoneSword[0])
 
 
     saveMw_conv = str(gameVars.misc_wood)
@@ -85,10 +85,23 @@ def saver(path):
     saverUnsI = saveCallerF_UnsI.write (saveUnsI_conv)
     saverSmS = saveCallerF_SmS.write (saveSmS_conv)
     saverSmI = saveCallerF_SmI.write (saveSmI_conv)
-    saverIp = saveCallerF_Ip.write (saveIp_conv)
-    saverIa = saveCallerF_Ia.write (saveIa_conv)
-    saverSp = saveCallerF_Sp.write (saveSp_conv)
-    saverSa = saveCallerF_Sa.write (saveSa_conv)
+    
+    
+    saverIpd = saveCallerF_Ipd.write (saveIpd_conv)
+    saverIad = saveCallerF_Iad.write (saveIad_conv)
+    saverIsd = saveCallerF_Isd.write (saveIsd_conv)
+    saverSpd = saveCallerF_Spd.write (saveSpd_conv)
+    saverSad = saveCallerF_Sad.write (saveSad_conv)
+    saverSsd = saveCallerF_Ssd.write (saveSsd_conv)
+    
+    saverIpa = saveCallerF_Ipa.write (saveIpa_conv)
+    saverIaa = saveCallerF_Iaa.write (saveIaa_conv)
+    saverIsa = saveCallerF_Isa.write (saveIsa_conv)
+    saverSpa = saveCallerF_Spa.write (saveSpa_conv)
+    saverSaa = saveCallerF_Saa.write (saveSaa_conv)
+    saverSsa = saveCallerF_Ssa.write (saveSsa_conv)
+    
+    
     saverMw = saveCallerF_Mw.write (saveMw_conv)
     saverCcF = saveCallerF_CcF.write (saveCcF_conv)
     saverCpH = saveCallerF_CpH.write (saveCpH_conv)
@@ -109,12 +122,23 @@ def saver(path):
     saveCallerF_SmS.close
     saveCallerF_SmI.close
     saveCallerF_Mw.close
-    saveCallerF_Ip.close
-    saveCallerF_Ia.close
-    saveCallerF_Is.close
-    saveCallerF_Sp.close
-    saveCallerF_Sa.close
-    saveCallerF_Ss.close
+    
+    
+    saveCallerF_Ipd.close
+    saveCallerF_Iad.close
+    saveCallerF_Isd.close
+    saveCallerF_Spd.close
+    saveCallerF_Sad.close
+    saveCallerF_Ssd.close
+    
+    saveCallerF_Ipa.close
+    saveCallerF_Iaa.close
+    saveCallerF_Isa.close
+    saveCallerF_Spa.close
+    saveCallerF_Saa.close
+    saveCallerF_Ssa.close
+    
+    
     saveCallerF_CcF.close
     saveCallerF_CpH.close
     saveCallerF_CpP.close
