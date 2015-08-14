@@ -6,18 +6,18 @@ pecuary_cow = 0
 consumables_food = 0
 misc_people = 0
 
-misc_stoneSword = [1, 2]
-misc_stoneSwordDurSet = 2
+misc_stoneSword = [1, 8]
+misc_stoneSwordDurSet = 8
 misc_ironSword = [0, 0]
-misc_ironSwordDurSet = 0
+misc_ironSwordDurSet = 16
 misc_stoneAxe = [1, 6]
 misc_stoneAxeDurSet = 6
 misc_ironAxe = [0, 0]
-misc_ironAxeDurSet = 0
+misc_ironAxeDurSet = 12
 misc_stonePickaxe = [1, 10]
 misc_stonePickaxeDurSet = 10
 misc_ironPickaxe = [0, 0]
-misc_ironPickaxeDurSet = 0
+misc_ironPickaxeDurSet = 20
 
 misc_wood = 0
 misc_iron = 0
