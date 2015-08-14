@@ -20,11 +20,11 @@ misc_ironPickaxe = [0, 0]
 misc_ironPickaxeDurSet = 20
 
 misc_wood = 0
-misc_iron = 0
-misc_stone = 0
+misc_iron = 1000000
+misc_stone = 1000000
 misc_ironSm = 0
 misc_stoneSm = 0
-constructions_craftingForge = 0
-constructions_pplHouse = 0
-constructions_prodPecuary = 0
-constructions_smeltingForge = 0
+constructions_craftingForge = 1
+constructions_pplHouse = 1
+constructions_prodPecuary = 1
+constructions_smeltingForge = 1

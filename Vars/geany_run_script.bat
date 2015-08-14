@@ -1,4 +1,4 @@
-C:\Python34\python.exe "birth.py"
+C:\Python34\python.exe "gameVars.py"
 
 pause
 del "%0"

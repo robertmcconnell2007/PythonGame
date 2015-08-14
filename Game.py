@@ -12,7 +12,7 @@ from Vars import gameVars
 from Vars import death
 from Vars import birth
 import durability
-#print(os.getcwd())
+
 Opt = "-1"
 while(Opt != '1' and Opt != '2' and Opt != '3'):
 	print("1.To change location;\n2.New game\n3.Load game")
@@ -252,7 +252,7 @@ while gameVars.misc_people > 0:
 	
 	if What_toDo == '6':
 		what_toBuild = '-1'
-		while(what_toBuild != '1' or what_toBuild != '2' or what_toBuild != '3' or what_toBuild != '4' or what_toBuild != '5':
+		while what_toBuild != '1' or what_toBuild != '2' or what_toBuild != '3' or what_toBuild != '4' or what_toBuild != '5':
 			  what_toBuild = input ("What do you want to build? (choose with the respective number):\n1.A house for 29 wood;\n"
 									"2.An animal house for 60 wood;\n3.A furnace for 40 stone;\n4.A forge for 50 stone.\n5.Cancel\n>>  ")
 		if what_toBuild == '1':
@@ -302,7 +302,7 @@ while gameVars.misc_people > 0:
 		
 	if What_toDo == '7':
 		what_toCraft = '-1'
-		while(what_toCraft != '1' or what_toCraft != '1' or what_toCraft != '1' or what_toCraft != '1' or what_toCraft != '1' or what_toCraft != '1' or what_toCraft != '1'):
+		while(what_toCraft != '1' or what_toCraft != '2' or what_toCraft != '3' or what_toCraft != '4' or what_toCraft != '5' or what_toCraft != '6' or what_toCraft != '7'):
 			what_toCraft = input ("What do you want to craft? (choose with the respective number):\n"
 								  "1.A stone sword for 50 smelted stone;\n2.An iron sword for 125 smelted iron;\n3.A stone axe for 60 smelted stone;\n"
 								  "4.An iron axe for 80 smelted iron;\n5.A stone pickaxe for 130 smelted stone;\n6.An iron pickaxe for 180 smelted iron.\n"
@@ -352,7 +352,7 @@ while gameVars.misc_people > 0:
 				toSpawn += 1
 			elif gameVars.misc_ironSm < 80:
 				print ("Go smelt iron!!!")
-			
+				
 		if what_toCraft == '5' and gameVars.constructions_smeltingForge >= 1:
 			if gameVars.gameVars.misc_stoneSm >= 130:
 				gameVars.misc_stonePickaxe[0] += 1
@@ -383,40 +383,57 @@ while gameVars.misc_people > 0:
 		os.system("cls")
 	
 	if What_toDo == '8':
-		what_toSmelt = input ("What do you want to smelt?:\n1.Smelt iron;\n2.Smelt stone.\n>>  ")
-		if what_toSmelt == '1':
-			if gameVars.constructions_smeltingForge >= 1 and gameVars.misc_iron >= 1:
-				if(gameVars.misc_iron >= 1:
-					howm_ironSmelt = input ("How much iron do you want to smelt?\nYou have " + str(gameVars.misc_iron) + "\n>>  ")
-					howm_ironSmelt_int = int(howm_ironSmelt)
-					if misc_iron >= howm_ironSmelt_int:
-						for number in range(howm_ironSmelt_int):
-							gameVars.misc_ironSm += 1
-							gameVars.misc_iron -= 1
-						print("Successfully smelted" + howm_ironSmelt + " iron ore!")
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-					elif gameVars.misc_iron < howm_ironSmelt_int:
-						gameVars.misc_ironSm += misc_iron
-			elif gameVars.constructions_smeltingForge == 0 or gameVars.misc_iron == 0:
-				print("Come back when you have at least 1 iron!!! Or when you have a smelting forge...")
+		what_toSmelt = '-1'
+		while what_toSmelt != '1' or what_toSmelt != '2' or what_toSmelt != '3':
+			what_toSmelt = input ("What do you want to smelt?:\n1.Smelt iron;\n2.Smelt stone.\n3.Cancel\n>>  ")
+			if what_toSmelt == '1':
+				if gameVars.constructions_smeltingForge >= 1:
+					if gameVars.misc_iron >= 1:
+						howm_ironSmelt = input ("How much iron do you want to smelt?\nYou have " + str(gameVars.misc_iron) + "\n>>  ")
+						if howm_ironSmelt and int(howm_ironSmelt):
+							howm_ironSmelt_int = int(howm_ironSmelt)
+							if gameVars.misc_iron >= howm_ironSmelt_int:
+								for number in range(howm_ironSmelt_int):
+									gameVars.misc_ironSm += 1
+									gameVars.misc_iron -= 1
+								print("Successfully smelted " + howm_ironSmelt + " iron ore!")
+								gameVars.consumables_food -= 1
+								toSpawn += 1
 			
-		
-		if what_toSmelt == '2':
-			if gameVars.constructions_smeltingForge >= 1 and gameVars.misc_stone >= 1:
-				howm_stoneSmelt = input ("How much stone do you intend to smelt?\n>>  ")
-				howm_stoneSmelt_int = int(howm_stoneSmelt)
-				if gameVars.misc_stone >= howm_stoneSmelt_int:
-					for number in range(howm_stoneSmelt_int):
-						gameVars.misc_stoneSm += 1
-						gameVars.misc_stone -= 1
-						print ("Smelted successfully!")
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-				elif gameVars.misc_stone < howm_stoneSmelt_int:
-					print("Come back when you have decided to enter less or as many stone as you have!!!")
-			elif gameVars.constructions_smeltingForge == 0 or gameVars.misc_stone == 0:
-				print("Come back when you have at least 1 stone!!! Or when you have a smelting forge...")
+							elif gameVars.misc_iron < howm_ironSmelt_int:
+								gameVars.misc_ironSm += gameVars.misc_iron
+						else:
+							print("Enter a number.\n")
+					else:
+						print("Come back when you have at least 1 iron!!!")
+				else:
+					print("Come back when you have a furnace...")
+			
+			elif what_toSmelt == '2':
+				if gameVars.constructions_smeltingForge >= 1:
+					if gameVars.misc_stone >= 1:
+						howm_stoneSmelt = input ("How much stone do you want to smelt?\nYou have " + str(gameVars.misc_stone) + "\n>>  ")
+						if howm_ironSmelt and int(howm_stoneSmelt):
+							howm_stoneSmelt_int = int(howm_stoneSmelt)
+							if gameVars.misc_stone >= howm_stoneSmelt_int:
+								for number in range(howm_stoneSmelt_int):
+									gameVars.misc_stoneSm += 1
+									gameVars.misc_stone -= 1
+								print ("Successfully smelted " + howm_ironSmelt + " stone!")
+								gameVars.consumables_food -= 1
+								toSpawn += 1
+							elif gameVars.misc_stone < howm_stoneSmelt_int:
+								gameVars.misc_stoneSm += gameVars.misc_stone
+						else:
+							print("Enter a number.\n")
+					else:
+						print("Come back when you have at least 1 stone!!!")
+				else:
+					print("Come back when you have a furnace...")
+			elif what_toSmelt == '3':
+				print("Ok...")
+		time.sleep(3)
+		os.system("cls")
 	
 	if What_toDo == '9':
 		#Need to print out all of the resources to the user 
