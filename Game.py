@@ -12,9 +12,7 @@ from Vars import gameVars
 from Vars import death
 from Vars import birth
 import durability
-
 #print(os.getcwd())
-
 Opt = "-1"
 while(Opt != '1' and Opt != '2' and Opt != '3'):
 	print("1.To change location;\n2.New game\n3.Load game")
@@ -38,7 +36,6 @@ while(Opt != '1' and Opt != '2' and Opt != '3'):
 
 
 toSpawn = 0
-
 while gameVars.misc_people > 0:
 	os.system("cls")
 	
@@ -63,47 +60,54 @@ while gameVars.misc_people > 0:
 	#Refactored to use the updated durability function
 	#Updated input blocks to use while loops to prevent users from inputting bad values.
 	if What_toDo == '1':
+		
+		def treeRewards(wood, tree, food):
+			if(animal == "pine"):
+				gameVars.forest_pineTree -= 1
+			elif(animal == "apple"):
+				gameVars.forest_appleTree -= 1
+			gameVars.consumables_food -= food
+			gameVars.misc_wood += wood
+			toSpawn += 1
+			time.sleep(3)
+			os.system("cls")
+			
 		which_treeChoice1 = '-1'
-		while(which_treeChoice1 != '1' and which_treeChoice1 != '2'):
-			which_treeChoice1 = input ("Choose with the respective number:\n1. Chop an apple tree\n2. Chop a pine tree\n")
+		while(which_treeChoice1 != '1' and which_treeChoice1 != '2' and which_treeChoice1 != '3'):
+			which_treeChoice1 = input ("Choose with the respective number:\n1.Chop an apple tree\n2.Chop a pine tree\n3.Cancel\n>>  ")
 		if which_treeChoice1 == '1': 
 			if(gameVars.forest_appleTree > 0):
 				tool = '-1'
-				while(tool != '1' and tool != '2'):
-					tool = input("Which tool do you wish to use?\n1.Stone axe\n2.Iron axe\n")
+				while(tool != '1' and tool != '2' and tool != '3'):
+					tool = input("Which tool do you wish to use?\n1.Stone axe\n2.Iron axe\n3.Cancel\n>>  ")
 				if tool == "1":
 					if(durability.decreaseDurability(1,0,0,1,0,0,0) == True):
-						print ("You chopped an apple tree, and under the leaves you found 1kg of apples and 6kgs of wood!")
-						gameVars.consumables_food += 3
-						gameVars.misc_wood += 6
-						gameVars.forest_appleTree -= 1
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-						time.sleep(3)
-						os.system("cls")
+						print ("You chopped an apple tree, and under the leaves you found 3kgs of apples and 6kgs of wood!")
+						treeRewards(6,"apple",-2)
+						durability.decreaseDurability(1,0,0,1,0,0,0)
 					else:
 						print("You don't have a Stone Axe! You need to craft another one.")
 						time.sleep(3)
 						os.system("cls")
 				elif tool == "2":
 					if(durability.decreaseDurability(1,0,0,0,1,0,0) == True):
-						print ("You chopped an apple tree, and under the leaves you found 3kgs of apples and 8kgs of wood!")
-						gameVars.consumables_food += 5
-						gameVars.misc_wood += 8
-						gameVars.forest_appleTree -= 1
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-						time.sleep(3)
-						os.system("cls")
+						print ("You chopped an apple tree, and under the leaves you found 5kgs of apples and 8kgs of wood!")
+						treeRewards(8,"apple",-4)
+						durability.decreaseDurability(1,0,0,0,1,0,0)
 					else:
 						print("You don't have a Iron Axe! You need to craft another one.")
 						time.sleep(3)
 						os.system("cls")
+				elif tool == '3':
+					print ("Ok...")
+					time.sleep(3)
+					os.system("cls")
 			else:
 				print("There are no apple trees left!")
 				time.sleep(3)
 				os.system("cls")
-
+		
+		#still have to fix
 		elif which_treeChoice1 == '2':
 			if gameVars.forest_pineTree > 0:
 				tool = '-1'
@@ -111,7 +115,7 @@ while gameVars.misc_people > 0:
 					tool = input("Which tool do you wish to use?\n1.Stone axe\n2.Iron axe\n>>  ")
 				if tool == "1":
 					if(durability.decreaseDurability(1,0,0,1,0,0,0) == True):
-						print ("You have successfully chopped a pine tree! You got 7 wood points from it!")
+						print ("You have successfully chopped a pine tree! You got 7 kgs of wood from it!")
 						gameVars.misc_wood += 7
 						gameVars.forest_pineTree -= 1
 						gameVars.consumables_food -= 1
@@ -122,7 +126,7 @@ while gameVars.misc_people > 0:
 						print("You don't have a Stone Axe! You need to craft another one")
 				elif tool == "2":
 					if(durability.decreaseDurability(1,0,0,0,1,0,0) == True):
-						print ("You have successfully chopped a pine tree! You got 10 wood points from it!")
+						print ("You have successfully chopped a pine tree! You got 10 kgs wood from it!")
 						gameVars.misc_wood += 10
 						gameVars.forest_pineTree -= 1
 						gameVars.consumables_food -= 1
@@ -131,29 +135,41 @@ while gameVars.misc_people > 0:
 						os.system("cls")
 					else:
 						print("You don't have a Iron Axe! You need to craft another one")
+		elif(which_treeChoice1 == '3':
+			print("Ok...")
+			time.sleep(3)
+			os.system("cls")
 			else:
 				print ("You do not have a pine tree to chop!")
 				time.sleep(3)
 				os.system("cls")
 	
 	if What_toDo == '2':
+		#just to make the code more readable and compact
+		#------------------------------------------------
+		def killRewards(food, animal):
+			if(animal == "pig"):
+				gameVars.pecuary_pig -= 1
+			elif(animal == "cow"):
+				gameVars.pecuary_cow -= 1
+			gameVars.consumables_food += food
+			toSpawn += 1
+			time.sleep(3)
+			os.system("cls")
+		#------------------------------------------------
 		animalChoice = '-1'
-		while(animalChoice != '1' and animalChoice != '2'):
-			animalChoice = input("Do you want to kill:\n\n1.Pig\n2.Cow\n>>  ")
+		while(animalChoice != '1' and animalChoice != '2' and animalChoice != '3'):
+			animalChoice = input("Do you want to kill:\n\n1.Pig\n2.Cow\n3.Cancel\n>>  ")
 		if(animalChoice == '1'):
 			if(gameVars.pecuary_pig > 0):
 				weapon = '-1'
-				while(weapon != '1' and weapon != '2'):
-					weapon = input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n>>  ")	
+				while(weapon != '1' and weapon != '2' and weapon != '3'):
+					weapon = input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n3.Cancel\n>>  ")	
 				if weapon == "1":
 					if durability.decreaseDurability(1,1,0,0,0,0,0) == True:
 						print ("You killed a pig and managed to salvage 5kgs of meat!")
-						gameVars.consumables_food += 5
-						gameVars.pecuary_pig -= 1
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-						time.sleep(3)
-						os.system("cls")
+						killRewards(4, "pig")
+						durability.decreaseDurability(1,1,0,0,0,0,0)
 					else:
 						print("You don't have a stone sword! You need to craft a new one")
 						time.sleep(3)
@@ -161,34 +177,27 @@ while gameVars.misc_people > 0:
 				elif weapon == "2":
 					if durability.decreaseDurability(1,0,1,0,0,0,0) == True:
 						print ("You killed a pig and managed to salvage 7kgs of meat!")
-						gameVars.consumables_food += 7
-						gameVars.pecuary_pig -= 1
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-						time.sleep(3)
-						durability.decreaseDurability(0,1,0,0,0,0)
+						killRewards(6, "pig")
+						durability.decreaseDurability(1,0,1,0,0,0,0)
 						os.system("cls")
 					else:
 						print("You don't have an iron sword! you need to craft a new one")
 						time.sleep(3)
 						os.system("cls")
 			else:
-				print ("Pigs are extinct!")
+				print ("Pigs are extinct!")#or so you say.. :P
 	
 		#os.system("cls")
 		elif(animalChoice == '2'):				
 			if gameVars.pecuary_cow > 0:
 				weapon = '-1'
-				while(weapon != '1' and weapon != '2'):
-					weapon = input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n>>  ")
+				while(weapon != '1' and weapon != '2' and weapon != '3'):
+					weapon = input("What weapon would you like to use?\n\n1.Stone sword\n2.Iron sword\n3.Cancel\n>>  ")
 				if weapon == "1":
 					if(durability.decreaseDurability(1,1,0,0,0,0,0) == True):
 						print ("You killed a cow and salvaged 7kgs of meat!")
-						gameVars.consumables_food += 7
-						gameVars.pecuary_cow -= 1
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-						time.sleep(3)
+						killRewards(6, "cow")
+						durability.decreaseDurability(1,1,0,0,0,0,0)
 						os.system("cls")
 					else:
 						print("You don't have a stone sword! You need to craft a new one")		
@@ -197,35 +206,32 @@ while gameVars.misc_people > 0:
 				if weapon == "2":
 					if(durability.decreaseDurability(1,0,1,0,0,0,0) == True):
 						print ("You killed a cow and salvaged 9kgs of meat!")
-						gameVars.consumables_food += 9
-						gameVars.pecuary_cow -= 1
-						gameVars.consumables_food -= 1
-						toSpawn += 1
-						time.sleep(3)
+						killRewards(8, "cow")
+						durability.decreaseDurability(1,0,1,0,0,0,0)
 						os.system("cls")
 				else:
 					print("You don't have an iron sword! you need to craft a new one")
 					time.sleep(3)
 					os.system("cls")
 			else:
-				print("Cows are extinct!")
+				print("Cows are extinct!")#xD
 
 	if What_toDo == '3':
 		which_pick = '-1'
 		while(which_pick != '1' and which_pick != '2'):
 			which_pick = input ("Which pick would you like to use?\n1. Stone pickaxe\n2. Iron pickaxe\n")
-		
 		if(which_pick == '1'):		
 			iron_vein = random.randint(10,30)
 			stone_vein = random.randint(20,70)
 			if(durability.decreaseDurability(1,0,0,0,0,1,0) == True):
+				print("Mining...")
+				time.sleep(3)
 				print ("You have struck " + str(iron_vein) + " iron and " + str(stone_vein) + " stone!")
-				
 				gameVars.misc_iron += iron_vein
 				gameVars.misc_stone += stone_vein
 				gameVars.consumables_food -= 3
 				toSpawn += 1
-				time.sleep(3)
+				time.sleep(2)
 				os.system("cls")
 			else:
 				print("You don't have a Stone Pickaxe! You need to craft another")
@@ -235,12 +241,14 @@ while gameVars.misc_people > 0:
 			iron_vein = random.randint(2,6)
 			stone_vein = random.randint(4,15)
 			if(durability.decreaseDurability(1,0,0,0,0,0,1) == True):
+				print("Mining...")
+				time.sleep(3)
 				print ("You have struck " + str(iron_vein) + " iron and " + str(stone_vein) + " stone!")
 				gameVars.misc_iron += iron_vein
 				gameVars.misc_stone += stone_vein
 				gameVars.consumables_food -= 3
 				toSpawn += 1
-				time.sleep(3)
+				time.sleep(2)
 				os.system("cls")
 			else:
 				print("You don't have a Iron Pickaxe! You need to craft another")

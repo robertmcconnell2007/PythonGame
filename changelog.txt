@@ -16,3 +16,11 @@ New content added:
  Birth.
 A few grammatical mistakes fixed
 Event system added.
+
+V0.055
+
+Code compacting undergoing
+Durability not applying in certain places fix undergoing
+Slightly improved mining
+
+On V0.06 overall balancing and finishing 0.055 to be expected
