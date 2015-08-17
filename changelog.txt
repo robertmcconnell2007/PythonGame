@@ -24,3 +24,11 @@ Durability not applying in certain places fix undergoing
 Slightly improved mining
 
 On V0.06 overall balancing and finishing 0.055 to be expected
+
+V0.07
+
+testbranch1 added as a "beta branch" for a new turnbased system. Testing and troubleshooting undergoing. should be finished by V0.09 and will be possibly
+implemented in V0.10. V0.08 will be fixing all these bugs and testing.
+Clock added
+Queue added
+1.txt added for creating .py files easily.

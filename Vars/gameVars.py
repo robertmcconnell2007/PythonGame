@@ -28,3 +28,6 @@ constructions_craftingForge = 1
 constructions_pplHouse = 1
 constructions_prodPecuary = 1
 constructions_smeltingForge = 1
+
+dayCounter = 1
+totalDayCounter = 1
